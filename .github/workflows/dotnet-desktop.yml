@@ -81,12 +81,12 @@ jobs:
     - name: dotnet restore
       run: dotnet restore
     - name: Build
-      run: msbuild AssetStudio.sln
+      run: msbuild AssetStudio.sln -property:Configuration=Release
     - name: tree
       run: tree AssetStudioGUI\bin
     # Upload : https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: AssetStuio
-        path: AssetStudioGUI\bin
+        name: AssetStuio_net6.0
+        path: AssetStudioGUI\bin\Release\net6.0-windows
